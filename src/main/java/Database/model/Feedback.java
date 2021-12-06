@@ -7,21 +7,22 @@ public class Feedback {
     private LocalDateTime dateTime;
     private User submitter;
     private Employee employee;
-    private enum type{
-        POSITIVE, NEGATIVE
-    }
+    boolean positive;
     private int significance;
     private String description;
 
-    public Feedback(LocalDateTime dateTime, User submitter, Employee employee, int significance, String description) {
+    public Feedback(LocalDateTime dateTime, User submitter, Employee employee, boolean positive, int significance, String description) {
         assert significance >= 0 && significance <=5: "Importance of a feedback must be in range {0, 5}. " + significance + " was given";
 
         this.dateTime = dateTime;
         this.submitter = submitter;
         this.employee = employee;
+        this.positive = positive;
         this.significance = significance;
         this.description = description;
     }
+
+    public Feedback(){}
 
     public int getId() {
         return id;
@@ -55,7 +56,12 @@ public class Feedback {
         this.employee = employee;
     }
 
+    public boolean isPositive() { return positive; }
+
+    public void setPositive(boolean positive) { this.positive = positive; }
+
     public int getSignificance() {
+        assert significance >= 0 && significance <=5: "Importance of a feedback must be in range {0, 5}. " + significance + " was given";
         return significance;
     }
 
