@@ -127,7 +127,6 @@ public class FeedbackDAOTest {
         }
     }
 
-    @BeforeEach
     public void clearAllTables(){
         try {
             employeeDAOTest.clearEmployees();
@@ -197,12 +196,17 @@ public class FeedbackDAOTest {
         saveUsers();
     }
 
-    @BeforeEach
     private void initFeedbacks(){
-        prepareParams();
         feedback1 = new Feedback(LocalDateTime.parse("2020-11-14T18:30:00"), user1, employee1, true, 3, "Always on time");
         feedback2 = new Feedback(LocalDateTime.parse("2020-12-15T07:30:00"), user2, employee2, false, 5, "Rude to other employees");
         feedback3 = new Feedback(LocalDateTime.parse("2020-12-17T18:30:00"), user2, employee1, false, 1, "Did not want to take extra hours");
         feedback4 = new Feedback(LocalDateTime.parse("2020-12-24T19:30:00"), user4, employee4, true, 2, "Gave everyone a christmas gift");
+    }
+
+    @BeforeEach
+    private void prepareData(){
+        clearAllTables();
+        prepareParams();
+        initFeedbacks();
     }
 }
