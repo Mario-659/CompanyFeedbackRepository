@@ -1,6 +1,7 @@
 package Database.DAO;
 
 import Database.DBConnection;
+import Database.model.Employee;
 import Database.model.User;
 
 import java.sql.*;
@@ -29,11 +30,12 @@ public class UserDAO implements DAO<User> {
     }
 
     @Override
-    public void save(User user) throws SQLException {
+    public User save(User user) throws SQLException {
         String query = ("insert into users (FirstName, LastName, Email, Password) values(?,?,?,?)");
         PreparedStatement preStat = connection.prepareStatement(query);
         setStatement(preStat, user);
         preStat.executeUpdate();
+        return getLastInsertedUser();
     }
 
     @Override
@@ -46,11 +48,11 @@ public class UserDAO implements DAO<User> {
 
     @Override
     public User get(User user) throws SQLException {
-        return getByID(user.getId());
+        return get(user.getId());
     }
 
     @Override
-    public User getByID(int id) throws SQLException{
+    public User get(int id) throws SQLException{
         String query = "select * from users where UserId=(?)";
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setInt(1, id);
@@ -98,5 +100,12 @@ public class UserDAO implements DAO<User> {
         user.setEmail(result.getString("Email"));
         user.setPassword(result.getString("Password"));
         return user;
+    }
+
+    private User getLastInsertedUser() throws SQLException{
+        String query = "select * from users where UserId=last_insert_rowid()";
+        PreparedStatement preStat = connection.prepareStatement(query);
+        ResultSet result = preStat.executeQuery();
+        return getUser(result);
     }
 }
