@@ -28,11 +28,12 @@ public class EmployeeDAO implements DAO<Employee> {
     }
 
     @Override
-    public void save(Employee employee) throws SQLException {
+    public Employee save(Employee employee) throws SQLException {
         String query = "insert into employees (FirstName, LastName) values(?,?)";
         PreparedStatement preStat = connection.prepareStatement(query);
         setStatement(preStat, employee);
         preStat.executeUpdate();
+        return getLastInsertedEmployee();
     }
 
     @Override
@@ -45,11 +46,11 @@ public class EmployeeDAO implements DAO<Employee> {
 
     @Override
     public Employee get(Employee employee) throws SQLException {
-        return getByID(employee.getId());
+        return get(employee.getId());
     }
 
     @Override
-    public Employee getByID(int id) throws SQLException {
+    public Employee get(int id) throws SQLException {
         String query = "select * from employees where EmployeeId=(?)";
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setInt(1, id);
@@ -91,5 +92,12 @@ public class EmployeeDAO implements DAO<Employee> {
         employee.setFirstName(result.getString("FirstName"));
         employee.setLastName(result.getString("LastName"));
         return employee;
+    }
+
+    private Employee getLastInsertedEmployee() throws SQLException{
+        String query = "select * from employees where EmployeeId=last_insert_rowid()";
+        PreparedStatement preStat = connection.prepareStatement(query);
+        ResultSet result = preStat.executeQuery();
+        return getEmployee(result);
     }
 }
