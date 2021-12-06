@@ -87,4 +87,20 @@ public class Feedback {
                 ", significance=" + significance +
                 ", description='" + description.substring(0, 5) + "..." + '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Feedback feedback = (Feedback) o;
+
+        if (id != feedback.id) return false;
+        if (positive != feedback.positive) return false;
+        if (significance != feedback.significance) return false;
+        if (dateTime != null ? !dateTime.equals(feedback.dateTime) : feedback.dateTime != null) return false;
+        if (submitter != null ? !submitter.equals(feedback.submitter) : feedback.submitter != null) return false;
+        if (employee != null ? !employee.equals(feedback.employee) : feedback.employee != null) return false;
+        return description != null ? description.equals(feedback.description) : feedback.description == null;
+    }
 }

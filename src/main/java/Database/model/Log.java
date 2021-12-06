@@ -20,6 +20,8 @@ public class Log {
         this.description = description;
     }
 
+    public Log(){}
+
     public int getId() {
         return id;
     }
@@ -77,5 +79,20 @@ public class Log {
                 ", user=" + user +
                 ", significance=" + significance +
                 ", description='" + description.substring(0, 5) + "..." + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Log log = (Log) o;
+
+        if (id != log.id) return false;
+        if (significance != log.significance) return false;
+        if (dateTime != null ? !dateTime.equals(log.dateTime) : log.dateTime != null) return false;
+        if (subject != null ? !subject.equals(log.subject) : log.subject != null) return false;
+        if (user != null ? !user.equals(log.user) : log.user != null) return false;
+        return description != null ? description.equals(log.description) : log.description == null;
     }
 }
