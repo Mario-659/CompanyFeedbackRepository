@@ -189,7 +189,7 @@ public class FeedbackDAOTest {
         }
     }
 
-    private void prepareParams(){
+    public void prepareParams(){
         initEmployees();
         saveEmployees();
         initUsers();
