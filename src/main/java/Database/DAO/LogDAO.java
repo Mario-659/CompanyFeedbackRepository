@@ -1,8 +1,8 @@
 package Database.DAO;
 
 import Database.DBConnection;
-import Database.model.Log;
-import Database.model.User;
+import model.Log;
+import model.User;
 
 import java.sql.*;
 import java.time.LocalDateTime;

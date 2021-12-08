@@ -3,8 +3,8 @@ package database;
 import Database.DAO.LogDAO;
 import Database.DAO.UserDAO;
 import Database.DBConnection;
-import Database.model.Log;
-import Database.model.User;
+import model.Log;
+import model.User;
 
 import java.time.LocalDateTime;
 

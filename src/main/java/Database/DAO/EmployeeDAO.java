@@ -1,7 +1,7 @@
 package Database.DAO;
 
 import Database.DBConnection;
-import Database.model.Employee;
+import model.Employee;
 
 import java.sql.*;
 import java.util.ArrayList;

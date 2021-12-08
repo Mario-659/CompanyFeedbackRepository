@@ -1,4 +1,4 @@
-package Database.model;
+package model;
 
 import java.time.LocalDateTime;
 

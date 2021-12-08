@@ -1,9 +1,9 @@
 package Database.DAO;
 
 import Database.DBConnection;
-import Database.model.Employee;
-import Database.model.Feedback;
-import Database.model.User;
+import model.Employee;
+import model.Feedback;
+import model.User;
 
 import java.sql.*;
 import java.time.LocalDateTime;

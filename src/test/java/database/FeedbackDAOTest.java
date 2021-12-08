@@ -4,9 +4,9 @@ import Database.DAO.EmployeeDAO;
 import Database.DAO.FeedbackDAO;
 import Database.DAO.UserDAO;
 import Database.DBConnection;
-import Database.model.Employee;
-import Database.model.Feedback;
-import Database.model.User;
+import model.Employee;
+import model.Feedback;
+import model.User;
 
 import java.time.LocalDateTime;
 
