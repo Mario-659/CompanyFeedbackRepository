@@ -43,7 +43,7 @@ public class LogDAOTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        assertInstanceOf(Integer.class, log1.getId());
+        log1.getId();
         prevLog.setId(log1.getId());
         assertEquals(prevLog, log1);
     }

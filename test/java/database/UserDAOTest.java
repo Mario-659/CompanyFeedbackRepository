@@ -56,7 +56,7 @@ public class UserDAOTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        assertInstanceOf(Integer.class, user1.getId());
+        user1.getId();
         assertEquals(previousUser.getFirstName(), user1.getFirstName());
         assertEquals(previousUser.getLastName(), user1.getLastName());
     }

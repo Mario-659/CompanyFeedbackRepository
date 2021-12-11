@@ -52,7 +52,7 @@ public class FeedbackDAOTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        assertInstanceOf(Integer.class, feedback1.getId());
+        feedback1.getId();
         prevFeedback.setId(feedback1.getId());
         assertEquals(prevFeedback, feedback1);
     }

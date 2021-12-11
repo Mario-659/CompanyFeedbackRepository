@@ -56,7 +56,7 @@ public class EmployeeDAOTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        assertInstanceOf(Integer.class, employee1.getId());
+        employee1.getId();
         assertEquals(previousEmp.getFirstName(), employee1.getFirstName());
         assertEquals(previousEmp.getLastName(), employee1.getLastName());
     }
