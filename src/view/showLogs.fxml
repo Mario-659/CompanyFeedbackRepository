@@ -8,26 +8,25 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ShowLogsController">
    <top>
       <AnchorPane prefHeight="33.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="43.0" layoutY="4.0" mnemonicParsing="false" text="Go back" />
+            <Button layoutX="43.0" layoutY="4.0" mnemonicParsing="false" onAction="#goBack" text="Go back" />
          </children>
       </AnchorPane>
    </top>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="32.0" layoutY="69.0" prefHeight="214.0" prefWidth="536.0">
+            <TableView fx:id="logsTable" layoutX="32.0" layoutY="69.0" prefHeight="214.0" prefWidth="536.0">
               <columns>
-                <TableColumn prefWidth="42.4000244140625" text="id" />
-                <TableColumn prefWidth="64.800048828125" text="date" />
-                  <TableColumn prefWidth="92.79998779296875" text="subject" />
-                  <TableColumn prefWidth="112.800048828125" text="submitter" />
-                  <TableColumn prefWidth="142.39990234375" text="description" />
-                  <TableColumn prefWidth="78.4000244140625" text="sagnificance" />
+                <TableColumn fx:id="idCol" prefWidth="42.4000244140625" text="id" />
+                <TableColumn fx:id="dateCol" prefWidth="64.800048828125" text="date" />
+                  <TableColumn fx:id="subjectCol" prefWidth="92.79998779296875" text="subject" />
+                  <TableColumn fx:id="submitterCol" prefWidth="112.800048828125" text="submitter" />
+                  <TableColumn fx:id="descriptionCol" prefWidth="142.39990234375" text="description" />
+                  <TableColumn fx:id="significanceCol" prefWidth="78.4000244140625" text="sagnificance" />
               </columns>
             </TableView>
             <Label layoutX="209.0" layoutY="8.0" text="Company logs">

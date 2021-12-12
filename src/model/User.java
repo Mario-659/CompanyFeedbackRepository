@@ -56,14 +56,20 @@ public class User {
         this.password = password;
     }
 
+//    @Override
+//    public String toString() {
+//        return "User{" +
+//                "id=" + id +
+//                ", name='" + firstName +
+//                ", surname='" + lastName +
+//                ", email='" + email  +
+//                ", password='" + password  + '}';
+//    }
+
+    //TODO Temporary solution for displaying user name in table view/ShowLogsController.java:45
     @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + firstName +
-                ", surname='" + lastName +
-                ", email='" + email  +
-                ", password='" + password  + '}';
+    public String toString(){
+        return getFirstName();
     }
 
     @Override
