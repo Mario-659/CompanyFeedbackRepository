@@ -27,7 +27,7 @@ public class ShowUsersController {
     @FXML
     void goBack(ActionEvent event) throws IOException {
         Main main = new Main();
-        main.changeScene("home.fxml");
+        main.changeScene("../resources/fxml/home.fxml");
     }
 
     @FXML

@@ -30,7 +30,7 @@ public class AddUserController {
 
     @FXML
     public void goBack(ActionEvent actionEvent) throws IOException {
-        main.changeScene("home.fxml");
+        main.changeScene("../resources/fxml/home.fxml");
     }
 
     private void printInvalid(String message){

@@ -2,12 +2,6 @@ package view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -31,8 +25,7 @@ public class HomeController {
     }
 
     @FXML void addUser(ActionEvent event) throws IOException {
-        Stage popup = makePopup("addUser.fxml", "addUser");
-        main.changeScene("addUser.fxml");
+        main.changeScene("../resources/fxml/addUser.fxml");
     }
 
     @FXML void deleteEmployee(ActionEvent event) {
@@ -44,32 +37,22 @@ public class HomeController {
     }
 
     @FXML void showAllEmployees(ActionEvent event) throws IOException {
-        main.changeScene("showEmployees.fxml");
+        main.changeScene("../resources/fxml/showEmployees.fxml");
     }
 
     @FXML void showAllFeedbacks(ActionEvent event) throws IOException {
-        main.changeScene("showFeedbacks.fxml");
+        main.changeScene("../resources/fxml/showFeedbacks.fxml");
     }
 
     @FXML void showAllLogs(ActionEvent event) throws IOException {
-        main.changeScene("showLogs.fxml");
+        main.changeScene("../resources/fxml/showLogs.fxml");
     }
 
     @FXML void showAllUsers(ActionEvent event) throws IOException {
-        main.changeScene("showUsers.fxml");
+        main.changeScene("../resources/fxml/showUsers.fxml");
     }
 
     @FXML void showTrendline(ActionEvent event) {
 
-    }
-
-    private Stage makePopup(String fxml, String title) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(fxml));
-        Stage popup = new Stage();
-        popup.setScene(new Scene(root));
-        popup.setTitle(title);
-        popup.initModality(Modality.NONE);
-        popup.setResizable(false);
-        return popup;
     }
 }
