@@ -20,8 +20,8 @@ public class HomeController {
         main.changeScene("../resources/fxml/addEmployee.fxml");
     }
 
-    @FXML void addFeedback(ActionEvent event) {
-
+    @FXML void addFeedback(ActionEvent event) throws IOException {
+        main.changeScene("../resources/fxml/addFeedback.fxml");
     }
 
     @FXML void addUser(ActionEvent event) throws IOException {

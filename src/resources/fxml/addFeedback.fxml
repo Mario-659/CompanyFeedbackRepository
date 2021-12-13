@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddFeedbackController">
+    <children>
+      <ScrollPane prefHeight="400.0" prefWidth="606.0">
+         <content>
+              <AnchorPane prefHeight="400.0" prefWidth="586.0">
+                  <children>
+                      <Button layoutX="282.0" layoutY="430.0" mnemonicParsing="false" onAction="#addLog" text="Add" />
+                      <Label layoutX="225.0" layoutY="63.0" text="Date" />
+                      <Label layoutX="227.0" layoutY="135.0" text="Significance (1 - 5)" />
+                      <TextField fx:id="descriptionInput" layoutX="208.0" layoutY="364.0" prefHeight="55.0" prefWidth="185.0" />
+                      <Label layoutX="223.0" layoutY="339.0" text="Description" />
+                      <Button layoutX="53.0" layoutY="21.0" mnemonicParsing="false" onAction="#goBack" text="Go back" />
+                      <Label fx:id="incorrectInputDataLabel" contentDisplay="CENTER" layoutX="204.0" layoutY="318.0" prefHeight="17.0" prefWidth="193.0" textFill="#f40000" />
+                      <Label fx:id="userAddedLabel" contentDisplay="CENTER" layoutX="194.0" layoutY="318.0" prefHeight="17.0" prefWidth="210.0" textFill="#09ff42" />
+                      <DatePicker fx:id="dateInput" layoutX="224.0" layoutY="87.0" prefHeight="26.0" prefWidth="150.0" />
+                      <TextField fx:id="significanceInput" layoutX="225.0" layoutY="162.0" />
+                  <ChoiceBox fx:id="employeeChoice" layoutX="224.0" layoutY="223.0" prefWidth="150.0" />
+                  <Label layoutX="227.0" layoutY="198.0" text="Employee" />
+                  <ChoiceBox fx:id="isPositiveChoice" layoutX="226.0" layoutY="292.0" prefWidth="150.0" />
+                  <Label layoutX="221.0" layoutY="267.0" text="Positive/Negative" />
+                  </children>
+              </AnchorPane>
+         </content>
+      </ScrollPane>
+    </children>
+</Pane>
