@@ -1,28 +1,27 @@
-package view;
+package view.SaveEntityControllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import service.UserService;
+import service.EmployeeService;
+import view.Main;
 
 import java.io.IOException;
 
-public class AddUserController {
+public class AddEmployeeController {
     Main main = new Main();
-    UserService userService = new UserService();
+    EmployeeService employeeService = new EmployeeService();
 
-    @FXML private TextField emailInput;
     @FXML private TextField firstNameInput;
-    @FXML private Label incorrectInputDataLabel;
     @FXML private TextField lastNameInput;
-    @FXML private TextField passwordInput;
     @FXML private Label userAddedLabel;
+    @FXML private Label incorrectInputDataLabel;
 
     @FXML
-    void addUser(ActionEvent event) {
-        if(userService.addUser(firstNameInput.getText(), lastNameInput.getText(), emailInput.getText(), passwordInput.getText())) {
-            printUserAdded();
+    void addEmployee(ActionEvent event) {
+        if(employeeService.addEmployee(firstNameInput.getText(), lastNameInput.getText())) {
+            printEmployeeAdded();
             clearInputs();
         }
         else printInvalid("Incorrect input");
@@ -33,20 +32,18 @@ public class AddUserController {
         main.changeScene("/resources/fxml/home.fxml");
     }
 
+    private void clearInputs(){
+        firstNameInput.clear();
+        lastNameInput.clear();
+    }
+
     private void printInvalid(String message){
         userAddedLabel.setText("");
         incorrectInputDataLabel.setText(message);
     }
 
-    private void printUserAdded(){
+    private void printEmployeeAdded(){
         incorrectInputDataLabel.setText("");
-        userAddedLabel.setText("User has been added");
-    }
-
-    private void clearInputs(){
-        emailInput.clear();
-        firstNameInput.clear();
-        lastNameInput.clear();
-        passwordInput.clear();
+        userAddedLabel.setText("Employee has been added");
     }
 }

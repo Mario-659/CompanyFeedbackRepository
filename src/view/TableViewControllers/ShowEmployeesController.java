@@ -1,4 +1,4 @@
-package view;
+package view.TableViewControllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,6 +7,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Employee;
 import service.EmployeeService;
+import view.Main;
 
 import java.io.IOException;
 

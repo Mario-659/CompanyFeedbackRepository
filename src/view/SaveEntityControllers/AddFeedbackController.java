@@ -1,4 +1,4 @@
-package view;
+package view.SaveEntityControllers;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -15,6 +15,8 @@ import service.EmployeeService;
 import service.FeedbackService;
 import service.LogsService;
 import service.UserService;
+import view.LoginController;
+import view.Main;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

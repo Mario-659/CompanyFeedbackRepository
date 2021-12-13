@@ -1,4 +1,4 @@
-package view;
+package view.TableViewControllers;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Feedback;
 import service.FeedbackService;
+import view.Main;
 
 import java.io.IOException;
 import java.sql.SQLException;
