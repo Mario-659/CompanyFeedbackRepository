@@ -5,7 +5,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Employee;
 import validators.EmployeeInputValidation;
-import validators.InputValidator;
 
 import java.io.IOException;
 import java.sql.SQLException;
