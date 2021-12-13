@@ -8,8 +8,8 @@ import java.io.IOException;
 public class HomeController {
     private final Main main = new Main();
 
-    @FXML void AddLog(ActionEvent event) {
-
+    @FXML void AddLog(ActionEvent event) throws IOException {
+        main.changeScene("../resources/fxml/addLog.fxml");
     }
 
     @FXML void DeleteLog(ActionEvent event) {

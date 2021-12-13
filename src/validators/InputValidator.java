@@ -17,9 +17,17 @@ public class InputValidator {
         else return email;
     }
 
-    public static String validatePassword(String password){
+    //TODO now it does 2 things, refactor
+    public static String checkBlank(String password){
         password = password.strip();
         if(password.isBlank()) return null;
         else return password;
     }
+
+    public static boolean validateSignificance(String significance){
+        int num = Integer.parseInt(significance);
+        return num > 0 && num <= 5;
+    }
+
+
 }

@@ -22,7 +22,7 @@ public class UserService {
         firstName = InputValidator.validateName(firstName);
         lastName = InputValidator.validateName(lastName);
         email = InputValidator.validateEmail(email);
-        password = InputValidator.validatePassword(password);
+        password = InputValidator.checkBlank(password);
         if(firstName==null || lastName==null || email==null || password==null) return false;
 
         User user = new User(firstName, lastName, email, password);
