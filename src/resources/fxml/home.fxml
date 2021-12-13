@@ -13,7 +13,6 @@
                <children>
                   <Button layoutX="186.0" layoutY="54.0" mnemonicParsing="false" onAction="#showAllLogs" prefHeight="50.0" prefWidth="200.0" text="Show all logs" />
                   <Button layoutX="186.0" layoutY="130.0" mnemonicParsing="false" onAction="#AddLog" prefHeight="50.0" prefWidth="200.0" text="Add Log" />
-                  <Button layoutX="186.0" layoutY="214.0" mnemonicParsing="false" onAction="#DeleteLog" prefHeight="50.0" prefWidth="200.0" text="Delete Log" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -23,7 +22,6 @@
                <children>
                   <Button layoutX="186.0" layoutY="54.0" mnemonicParsing="false" onAction="#showAllFeedbacks" prefHeight="50.0" prefWidth="200.0" text="Show all feedbacks" />
                   <Button layoutX="186.0" layoutY="130.0" mnemonicParsing="false" onAction="#addFeedback" prefHeight="50.0" prefWidth="200.0" text="Add feedback" />
-                  <Button layoutX="186.0" layoutY="214.0" mnemonicParsing="false" onAction="#deleteFeedback" prefHeight="50.0" prefWidth="200.0" text="Delete feedback" />
                </children>
             </AnchorPane>
          </content>
@@ -34,8 +32,7 @@
                <children>
                   <Button layoutX="186.0" layoutY="54.0" mnemonicParsing="false" onAction="#showAllEmployees" prefHeight="50.0" prefWidth="200.0" text="Show all employees" />
                   <Button layoutX="186.0" layoutY="123.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="50.0" prefWidth="200.0" text="Add employee" />
-                  <Button layoutX="186.0" layoutY="193.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="50.0" prefWidth="200.0" text="Delete employee" />
-                  <Button layoutX="186.0" layoutY="264.0" mnemonicParsing="false" onAction="#showTrendline" prefHeight="50.0" prefWidth="200.0" text="Show trendline" />
+                  <Button layoutX="186.0" layoutY="200.0" mnemonicParsing="false" onAction="#showTrendline" prefHeight="50.0" prefWidth="200.0" text="Show trendline" />
                </children>
             </AnchorPane>
          </content>

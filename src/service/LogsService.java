@@ -43,4 +43,13 @@ public class LogsService {
             e.printStackTrace();
         }
     }
+
+    public void delete(Log log) {
+        try {
+            logDAO.delete(log);
+            update();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -69,4 +69,13 @@ public class FeedbackService {
             e.printStackTrace();
         }
     }
+
+    public void delete(Feedback feedback) {
+        try {
+            feedbackDAO.delete(feedback);
+            update();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,12 +1,13 @@
 package view;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Feedback;
 import model.Log;
-import model.User;
 import service.LogsService;
 
 import java.io.IOException;
@@ -43,5 +44,12 @@ public class ShowLogsController {
         significanceCol.setCellValueFactory(new PropertyValueFactory<Log, Integer>("significance"));
         subjectCol.setCellValueFactory(new PropertyValueFactory<Log, String>("subject"));
         submitterCol.setCellValueFactory(new PropertyValueFactory<Log, String>("user"));
+    }
+
+    @FXML
+    private void deleteLog(ActionEvent actionEvent) {
+        ObservableList<Log> selectedLog = logsTable.getSelectionModel().getSelectedItems();
+        //TODO might produce bug when there are more than 1 selected feedbacks but with iter it throws error "no such element"
+        logsService.delete(selectedLog.get(0));
     }
 }
