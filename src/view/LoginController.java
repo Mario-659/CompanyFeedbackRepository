@@ -41,6 +41,6 @@ public class LoginController {
 
     private void moveToHomepage() throws IOException {
         Main main = new Main();
-        main.changeScene("../resources/fxml/home.fxml");
+        main.changeScene("/resources/fxml/home.fxml");
     }
 }

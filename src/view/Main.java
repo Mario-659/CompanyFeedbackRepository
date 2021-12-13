@@ -16,7 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         stage = primaryStage;
         primaryStage.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/fxml/login.fxml"));
         primaryStage.setTitle("Company Management Repository");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

@@ -41,6 +41,6 @@ public class TrendlineController {
 
     @FXML
     public void goBack(ActionEvent actionEvent) throws IOException {
-        main.changeScene("../resources/fxml/home.fxml");
+        main.changeScene("/resources/fxml/home.fxml");
     }
 }

@@ -28,7 +28,7 @@ public class AddEmployeeController {
 
     @FXML
     public void goBack(ActionEvent actionEvent) throws IOException {
-        main.changeScene("../resources/fxml/home.fxml");
+        main.changeScene("/resources/fxml/home.fxml");
     }
 
     private void clearInputs(){

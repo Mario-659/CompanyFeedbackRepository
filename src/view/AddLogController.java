@@ -33,7 +33,7 @@ public class AddLogController {
 
     @FXML
     public void goBack(ActionEvent actionEvent) throws IOException {
-        main.changeScene("../resources/fxml/home.fxml");
+        main.changeScene("/resources/fxml/home.fxml");
     }
 
     private void printInvalid(String message){
