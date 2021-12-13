@@ -24,6 +24,6 @@ public class EmailValidator implements EmailValidation{
         ResultSet result = preStat.executeQuery();
         int count = 0;
         while(result.next()) count++;
-        return count == 0;
+        return count != 0;
     }
 }

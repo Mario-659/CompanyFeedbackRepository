@@ -18,6 +18,7 @@ public abstract class InputValidation<T> {
     protected String validateEmail(String email, EmailValidation emailValidation) throws IOException, SQLException {
         email = email.strip();
         if(email.isBlank()) throw new IOException("Email cannot be empty");
+        if(!email.contains("@")) throw new IOException("Email must contain @");
         if(emailValidation.isTaken(email)) throw new IOException("Given email is already taken");
         return email;
     }
