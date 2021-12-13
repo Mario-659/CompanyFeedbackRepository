@@ -52,7 +52,7 @@ public class HomeController {
         main.changeScene("../resources/fxml/showUsers.fxml");
     }
 
-    @FXML void showTrendline(ActionEvent event) {
-
+    @FXML void showTrendline(ActionEvent event) throws IOException {
+        main.changeScene("../resources/fxml/trendline.fxml");
     }
 }
