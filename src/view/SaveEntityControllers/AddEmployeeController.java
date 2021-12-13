@@ -20,11 +20,13 @@ public class AddEmployeeController {
 
     @FXML
     void addEmployee(ActionEvent event) {
-        if(employeeService.addEmployee(firstNameInput.getText(), lastNameInput.getText())) {
+        try {
+            employeeService.addEmployee(firstNameInput.getText(), lastNameInput.getText());
             printEmployeeAdded();
             clearInputs();
+        } catch (IOException e) {
+            printInvalid(e.getMessage());
         }
-        else printInvalid("Incorrect input");
     }
 
     @FXML

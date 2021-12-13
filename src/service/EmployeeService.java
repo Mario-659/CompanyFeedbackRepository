@@ -4,12 +4,15 @@ import database.DAO.EmployeeDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Employee;
+import validators.EmployeeInputValidation;
 import validators.InputValidator;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class EmployeeService {
     private static EmployeeDAO employeeDAO = new EmployeeDAO();
+    private static EmployeeInputValidation employeeInputValidation = new EmployeeInputValidation();
     private static ObservableList<Employee> employees = FXCollections.observableArrayList();
 
     public ObservableList<Employee> getEmployees() {
@@ -25,12 +28,9 @@ public class EmployeeService {
         }
     }
 
-    public boolean addEmployee(String firstName, String lastName) {
-        firstName = InputValidator.validateName(firstName);
-        lastName = InputValidator.validateName(lastName);
-        if(firstName == null || lastName==null) return false;
-        Employee employee = new Employee(firstName, lastName);
+    public boolean addEmployee(String firstName, String lastName) throws  IOException {
         try {
+            Employee employee = employeeInputValidation.validate(new String[]{firstName, lastName});
             employeeDAO.save(employee);
             return true;
         } catch (SQLException e) {
