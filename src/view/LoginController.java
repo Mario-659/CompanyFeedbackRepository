@@ -6,23 +6,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.User;
 import service.LoginService;
 
 import java.io.IOException;
 
 public class LoginController {
+    private final LoginService loginService = new LoginService();
+    private static User currentUser = null;
+
     @FXML private TextField emailInput;
     @FXML private Label invalidField;
     @FXML private Button loginButton;
     @FXML private PasswordField passwordInput;
-    private final LoginService loginService = new LoginService();
 
     @FXML
     void login(ActionEvent event) throws IOException {
         String email = emailInput.getText();
         String password = passwordInput.getText();
-        if(loginService.login(email, password)) moveToHomepage();
+        if(loginService.login(email, password)) {
+            currentUser = loginService.getUser(email);
+            moveToHomepage();
+        }
         else printInvalid();
+    }
+
+    public static User getCurrentUser(){
+        return currentUser;
     }
 
     private void printInvalid(){

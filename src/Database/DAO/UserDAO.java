@@ -45,6 +45,14 @@ public class UserDAO implements DAO<User> {
         preStat.executeUpdate();
     }
 
+    public User get(String email) throws SQLException {
+        String query = "select * from users where Email=(?)";
+        PreparedStatement preStat = connection.prepareStatement(query);
+        preStat.setString(1, email);
+        ResultSet result = preStat.executeQuery();
+        return getUser(result);
+    }
+
     @Override
     public User get(User user) throws SQLException {
         return get(user.getId());
