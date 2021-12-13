@@ -20,9 +20,9 @@ public class AddFeedbackController {
     FeedbackService feedbackService = new FeedbackService();
     EmployeeService employeeService = new EmployeeService();
 
-    @FXML private final ChoiceBox<Employee> employeeChoice = new ChoiceBox<>();
-    @FXML private final ChoiceBox<String> isPositiveChoice = new ChoiceBox<>();
-    @FXML private final ChoiceBox<Integer> significanceChoice = new ChoiceBox<>();
+    @FXML private ChoiceBox<Employee> employeeChoice = new ChoiceBox<>();
+    @FXML private ChoiceBox<String> isPositiveChoice = new ChoiceBox<>();
+    @FXML private ChoiceBox<Integer> significanceChoice = new ChoiceBox<>();
     @FXML private DatePicker dateInput;
     @FXML private Label incorrectInputDataLabel;
     @FXML private TextArea descriptionInput;

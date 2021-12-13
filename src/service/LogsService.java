@@ -5,13 +5,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Log;
 import model.User;
-import validators.InputValidator;
+import validators.LogInputValidation;
 
+import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class LogsService {
     private static LogDAO logDAO = new LogDAO();
+    private static LogInputValidation logVal = new LogInputValidation();
     private static ObservableList<Log> logs = FXCollections.observableArrayList();
 
     public ObservableList<Log> getLogs(){
@@ -19,15 +21,9 @@ public class LogsService {
         return logs;
     }
 
-    public boolean addLog(LocalDateTime dateTime, String subject, User user, String significance, String description){
-        if(!InputValidator.validateSignificance(significance)) return false;
-
-        subject = InputValidator.checkBlank(subject);
-        description = InputValidator.checkBlank(description);
-        if(subject == null || description == null) return false;
-
-        Log log = new Log(dateTime, subject, user, Integer.parseInt(significance), description);
+    public boolean addLog(LocalDate dateTime, String subject, User user, Integer significance, String description) throws IOException {
         try {
+            Log log = logVal.validate(dateTime, subject, user, significance, description);
             logDAO.save(log);
             return true;
         } catch (SQLException e) {

@@ -34,6 +34,14 @@ public abstract class InputValidation<T> {
         return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 
+    protected String validateSubject(String subject) throws IOException{
+        subject = subject.strip();
+        if(subject.isBlank()) throw new IOException("Subject cannot be empty");
+        if(!subject.matches("[a-zA-Z]+")) throw new IOException("Subject must contain only letters");
+        return subject.substring(0, 1).toUpperCase() + subject.substring(1).toLowerCase();
+    }
+
+
     protected String validateDescription(String description) throws IOException{
         description = description.strip();
         if(description.isBlank()) throw new IOException("Description cannot be empty");

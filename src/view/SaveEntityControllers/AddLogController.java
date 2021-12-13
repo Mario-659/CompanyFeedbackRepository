@@ -1,10 +1,11 @@
 package view.SaveEntityControllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import service.LogsService;
 import view.LoginController;
 import view.Main;
@@ -15,20 +16,24 @@ public class AddLogController {
     Main main = new Main();
     LogsService logsService = new LogsService();
 
-    @FXML private TextField significanceInput;
+    @FXML private ChoiceBox<Integer> significanceChoice = new ChoiceBox<>();
     @FXML private TextField subjectInput;
     @FXML private DatePicker dateInput;
     @FXML private Label incorrectInputDataLabel;
-    @FXML private TextField descriptionInput;
+    @FXML private TextArea descriptionInput;
     @FXML private Label userAddedLabel;
+
+    private int selectedSignificance;
 
     @FXML
     void addLog(ActionEvent event) {
-        if(logsService.addLog(dateInput.getValue().atTime(0, 0), subjectInput.getText(), LoginController.getCurrentUser(), significanceInput.getText(), descriptionInput.getText())) {
-            printUserAdded();
+        try {
+            logsService.addLog(dateInput.getValue(), subjectInput.getText(), LoginController.getCurrentUser(), selectedSignificance, descriptionInput.getText());
+            printLogAdded();
             clearInputs();
+        } catch (IOException e) {
+            printInvalid(e.getMessage());
         }
-        else printInvalid("Incorrect input");
     }
 
     @FXML
@@ -36,18 +41,31 @@ public class AddLogController {
         main.changeScene("/resources/fxml/home.fxml");
     }
 
+    @FXML
+    private void initialize(){
+        significanceChoice.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5));
+        significanceChoice.getSelectionModel().selectedIndexProperty().addListener(
+                new ChangeListener<Number>() {
+                    public void changed(ObservableValue oV, Number value, Number newValue) {
+                        selectedSignificance = newValue.intValue() + 1;
+                    }
+                }
+        );
+        significanceChoice.getSelectionModel().selectFirst();
+    }
+
     private void printInvalid(String message){
         userAddedLabel.setText("");
         incorrectInputDataLabel.setText(message);
     }
 
-    private void printUserAdded(){
+    private void printLogAdded(){
         incorrectInputDataLabel.setText("");
         userAddedLabel.setText("Log has been added");
     }
 
     private void clearInputs(){
         subjectInput.clear();
-        significanceInput.clear();
+        descriptionInput.clear();
     }
 }
