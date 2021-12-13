@@ -22,11 +22,13 @@ public class AddUserController {
 
     @FXML
     void addUser(ActionEvent event) {
-        if(userService.addUser(firstNameInput.getText(), lastNameInput.getText(), emailInput.getText(), passwordInput.getText())) {
+        try {
+            userService.addUser(firstNameInput.getText(), lastNameInput.getText(), emailInput.getText(), passwordInput.getText());
             printUserAdded();
             clearInputs();
+        } catch (IOException e) {
+            printInvalid(e.getMessage());
         }
-        else printInvalid("Incorrect input");
     }
 
     @FXML

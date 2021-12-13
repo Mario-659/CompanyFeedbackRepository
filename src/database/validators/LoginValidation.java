@@ -3,5 +3,5 @@ package database.validators;
 import java.sql.SQLException;
 
 public interface LoginValidation{
-    public boolean validateLogin(String email, String password) throws SQLException;
+    boolean validateLogin(String email, String password) throws SQLException;
 }

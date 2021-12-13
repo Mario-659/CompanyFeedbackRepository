@@ -4,12 +4,14 @@ import database.DAO.UserDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.User;
-import validators.InputValidator;
+import validators.UserInputValidator;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class UserService {
     private static UserDAO userDAO = new UserDAO();
+    private static UserInputValidator userInputValidator = new UserInputValidator();
     private static ObservableList<User> users = FXCollections.observableArrayList();
 
     public ObservableList<User> getUsers(){
@@ -17,16 +19,9 @@ public class UserService {
         return users;
     }
 
-    //TODO improve this (maybe with throwing errors)
-    public boolean addUser(String firstName, String lastName, String email, String password){
-        firstName = InputValidator.validateName(firstName);
-        lastName = InputValidator.validateName(lastName);
-        email = InputValidator.validateEmail(email);
-        password = InputValidator.checkBlank(password);
-        if(firstName==null || lastName==null || email==null || password==null) return false;
-
-        User user = new User(firstName, lastName, email, password);
+    public boolean addUser(String firstName, String lastName, String email, String password) throws IOException {
         try {
+            User user = userInputValidator.validate(new String[]{firstName, lastName, email, password});
             userDAO.save(user);
             return true;
         } catch (SQLException e) {

@@ -2,6 +2,8 @@ package validators;
 
 public class InputValidator {
 
+
+
     public static String validateName(String name) {
         name = name.strip();
         if(name.isBlank() || !name.matches("[a-zA-Z]+")) return null;
@@ -28,6 +30,4 @@ public class InputValidator {
         int num = Integer.parseInt(significance);
         return num > 0 && num <= 5;
     }
-
-
 }
