@@ -6,15 +6,18 @@ import javafx.collections.ObservableList;
 import model.Employee;
 import model.Feedback;
 import model.User;
-import validators.InputValidator;
+import validators.FeedbackInputValidation;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class FeedbackService {
     private static FeedbackDAO feedbackDAO = new FeedbackDAO();
+    private static FeedbackInputValidation feedbackInputValidation = new FeedbackInputValidation();
     private static ObservableList<Feedback> feedbacks = FXCollections.observableArrayList();
 
     public ObservableList<Feedback> getFeedbacks() {
@@ -22,13 +25,9 @@ public class FeedbackService {
         return feedbacks;
     }
 
-    public boolean addFeedback(LocalDateTime dateTime, User submitter, Employee employee, boolean positive, String significance, String description){
-        if(!InputValidator.validateSignificance(significance)) return false;
-        description = InputValidator.checkBlank(description);
-        if(description == null) return false;
-
-        Feedback feedback = new Feedback(dateTime, submitter, employee, positive, Integer.parseInt(significance), description);
+    public boolean addFeedback(LocalDate dateTime, User submitter, Employee employee, boolean positive, int significance, String description) throws  IOException {
         try {
+            Feedback feedback = feedbackInputValidation.validate(dateTime, submitter, employee, positive, significance, description);
             feedbackDAO.save(feedback);
             return true;
         } catch (SQLException e) {

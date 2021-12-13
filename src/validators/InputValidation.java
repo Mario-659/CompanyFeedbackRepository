@@ -4,6 +4,8 @@ import database.validators.EmailValidation;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public abstract class InputValidation<T> {
     /**
@@ -30,5 +32,21 @@ public abstract class InputValidation<T> {
         if(name.isBlank()) throw new IOException("Name cannot be empty");
         if(!name.matches("[a-zA-Z]+")) throw new IOException("Name must contain only letters");
         return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+    }
+
+    protected String validateDescription(String description) throws IOException{
+        description = description.strip();
+        if(description.isBlank()) throw new IOException("Description cannot be empty");
+        return description;
+    }
+
+    protected LocalDateTime validateDate(LocalDateTime dateTime) throws IOException {
+        if(dateTime == null) throw new IOException("Invalid date");
+        return dateTime;
+    }
+
+    protected LocalDateTime validateDate(LocalDate dateTime) throws IOException {
+        if(dateTime == null) throw new IOException("Invalid date");
+        return dateTime.atTime(0, 0);
     }
 }

@@ -6,10 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import model.Employee;
 import service.EmployeeService;
 import service.FeedbackService;
@@ -23,25 +20,28 @@ public class AddFeedbackController {
     FeedbackService feedbackService = new FeedbackService();
     EmployeeService employeeService = new EmployeeService();
 
-    @FXML private ChoiceBox<Employee> employeeChoice = new ChoiceBox<>();
-    @FXML private ChoiceBox<String> isPositiveChoice = new ChoiceBox<>();
-    @FXML private TextField significanceInput;
+    @FXML private final ChoiceBox<Employee> employeeChoice = new ChoiceBox<>();
+    @FXML private final ChoiceBox<String> isPositiveChoice = new ChoiceBox<>();
+    @FXML private final ChoiceBox<Integer> significanceChoice = new ChoiceBox<>();
     @FXML private DatePicker dateInput;
     @FXML private Label incorrectInputDataLabel;
-    @FXML private TextField descriptionInput;
+    @FXML private TextArea descriptionInput;
     @FXML private Label userAddedLabel;
 
     private ObservableList<Employee> employees;
     private Employee selectedEmployee;
     private boolean selectedPositive;
+    private int selectedSignificance;
 
     @FXML
     void addLog(ActionEvent event) {
-        if(feedbackService.addFeedback(dateInput.getValue().atTime(0, 0), LoginController.getCurrentUser(), selectedEmployee, selectedPositive, significanceInput.getText(), descriptionInput.getText())) {
+        try {
+            feedbackService.addFeedback(dateInput.getValue(), LoginController.getCurrentUser(), selectedEmployee, selectedPositive, selectedSignificance, descriptionInput.getText());
             printUserAdded();
             clearInputs();
+        } catch (IOException e) {
+            printInvalid(e.getMessage());
         }
-        else printInvalid("Incorrect input");
     }
 
     @FXML
@@ -53,10 +53,8 @@ public class AddFeedbackController {
     private void initialize(){
         employees = employeeService.getEmployees();
         employeeChoice.setItems(employees);
-
-        String[] posNeg = new String[]{"Positive", "Negative"};
         isPositiveChoice.setItems(FXCollections.observableArrayList("Positive", "Negative"));
-
+        significanceChoice.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5));
 
         employeeChoice.getSelectionModel().selectedIndexProperty().addListener(
                 new ChangeListener<Number>() {
@@ -77,6 +75,14 @@ public class AddFeedbackController {
         );
         isPositiveChoice.getSelectionModel().selectFirst();
 
+        significanceChoice.getSelectionModel().selectedIndexProperty().addListener(
+                new ChangeListener<Number>() {
+                    public void changed(ObservableValue oV, Number value, Number newValue) {
+                        selectedSignificance = newValue.intValue() + 1;
+                    }
+                }
+        );
+        significanceChoice.getSelectionModel().selectFirst();
     }
 
     private void printInvalid(String message){
@@ -94,7 +100,6 @@ public class AddFeedbackController {
     }
 
     private void clearInputs(){
-        significanceInput.clear();
         descriptionInput.clear();
     }
 }
