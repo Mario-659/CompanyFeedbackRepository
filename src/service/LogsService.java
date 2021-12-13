@@ -1,6 +1,6 @@
 package service;
 
-import Database.DAO.LogDAO;
+import database.DAO.LogDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Log;

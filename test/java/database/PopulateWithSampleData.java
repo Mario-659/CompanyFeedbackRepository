@@ -1,7 +1,6 @@
 package database;
 
-import Database.DAO.*;
-import Database.DBConnection;
+import database.DAO.*;
 import model.Employee;
 import model.Feedback;
 import model.Log;

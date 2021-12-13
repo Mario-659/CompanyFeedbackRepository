@@ -1,8 +1,7 @@
 package database;
 
-import Database.DAO.LogDAO;
-import Database.DAO.UserDAO;
-import Database.DBConnection;
+import database.DAO.LogDAO;
+import database.DAO.UserDAO;
 import model.Log;
 import model.User;
 

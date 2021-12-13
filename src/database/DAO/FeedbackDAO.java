@@ -1,6 +1,6 @@
-package Database.DAO;
+package database.DAO;
 
-import Database.DBConnection;
+import database.DBConnection;
 import model.Employee;
 import model.Feedback;
 import model.User;

@@ -1,6 +1,6 @@
 package service;
 
-import Database.DAO.FeedbackDAO;
+import database.DAO.FeedbackDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Employee;

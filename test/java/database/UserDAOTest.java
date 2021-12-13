@@ -1,7 +1,6 @@
 package database;
 
-import Database.DAO.UserDAO;
-import Database.DBConnection;
+import database.DAO.UserDAO;
 import model.User;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;

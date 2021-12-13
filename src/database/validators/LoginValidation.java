@@ -1,4 +1,4 @@
-package Database.validators;
+package database.validators;
 
 import java.sql.SQLException;
 

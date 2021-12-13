@@ -1,7 +1,7 @@
 package service;
 
-import Database.DAO.UserDAO;
-import Database.validators.LoginValidator;
+import database.DAO.UserDAO;
+import database.validators.LoginValidator;
 import model.User;
 
 import java.sql.SQLException;

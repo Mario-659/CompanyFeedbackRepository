@@ -1,6 +1,6 @@
-package Database.validators;
+package database.validators;
 
-import Database.DBConnection;
+import database.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,9 +1,8 @@
 package database;
 
-import Database.DAO.EmployeeDAO;
-import Database.DAO.FeedbackDAO;
-import Database.DAO.UserDAO;
-import Database.DBConnection;
+import database.DAO.EmployeeDAO;
+import database.DAO.FeedbackDAO;
+import database.DAO.UserDAO;
 import model.Employee;
 import model.Feedback;
 import model.User;

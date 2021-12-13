@@ -1,6 +1,6 @@
 package database;
 
-import Database.validators.LoginValidator;
+import database.validators.LoginValidator;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
