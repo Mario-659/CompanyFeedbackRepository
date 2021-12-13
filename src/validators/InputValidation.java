@@ -22,6 +22,12 @@ public abstract class InputValidation<T> {
         return email;
     }
 
+    protected String validateEmail(String email) throws IOException, SQLException {
+        email = email.strip();
+        if(email.isBlank()) throw new IOException("Email cannot be empty");
+        return email;
+    }
+
     protected String validatePassword(String password) throws IOException{
         if(password.isBlank()) throw new IOException("Password cannot be empty");
         return password.strip();

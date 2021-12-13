@@ -17,26 +17,26 @@ public class LoginController {
 
     @FXML private TextField emailInput;
     @FXML private Label invalidField;
-    @FXML private Button loginButton;
     @FXML private PasswordField passwordInput;
 
     @FXML
     void login(ActionEvent event) throws IOException {
         String email = emailInput.getText();
         String password = passwordInput.getText();
-        if(loginService.login(email, password)) {
-            currentUser = loginService.getUser(email);
+        try {
+            currentUser = loginService.login(email, password);
             moveToHomepage();
+        } catch (IOException e) {
+            printInvalid(e.getMessage());
         }
-        else printInvalid();
     }
 
     public static User getCurrentUser(){
         return currentUser;
     }
 
-    private void printInvalid(){
-        invalidField.setText("Invalid email or password. Please try again");
+    private void printInvalid(String message){
+        invalidField.setText(message);
     }
 
     private void moveToHomepage() throws IOException {

@@ -15,4 +15,10 @@ public class UserInputValidator extends InputValidation<User>{
         String password = validatePassword(args[3]);
         return new User(firstName, lastName, email, password);
     }
+
+    public User validate(String email) throws IOException, SQLException{
+        User user = new User();
+        user.setEmail(validateEmail(email));
+        return user;
+    }
 }

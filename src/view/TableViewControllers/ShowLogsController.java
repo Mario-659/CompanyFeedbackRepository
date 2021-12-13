@@ -50,7 +50,6 @@ public class ShowLogsController {
     @FXML
     private void deleteLog(ActionEvent actionEvent) {
         ObservableList<Log> selectedLog = logsTable.getSelectionModel().getSelectedItems();
-        //TODO might produce bug when there are more than 1 selected feedbacks but with iter it throws error "no such element"
         logsService.delete(selectedLog.get(0));
     }
 }

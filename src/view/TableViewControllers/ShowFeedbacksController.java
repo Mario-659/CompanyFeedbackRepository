@@ -46,7 +46,6 @@ public class ShowFeedbacksController {
     @FXML
     private void deleteFeedbacks(ActionEvent actionEvent) {
         ObservableList<Feedback> selectedFeedback = feedbacksTable.getSelectionModel().getSelectedItems();
-        //TODO might produce bug when there are more than 1 selected feedbacks but with iter it throws error "no such element"
         feedbackService.delete(selectedFeedback.get(0));
     }
 }

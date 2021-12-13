@@ -20,7 +20,7 @@
             <TextField fx:id="emailInput" layoutX="226.0" layoutY="165.0" promptText="Email" />
             <PasswordField fx:id="passwordInput" layoutX="225.0" layoutY="224.0" promptText="Password" />
             <Button fx:id="loginButton" layoutX="274.0" layoutY="301.0" mnemonicParsing="false" onAction="#login" text="Log in" />
-            <Label fx:id="invalidField" contentDisplay="CENTER" layoutX="142.0" layoutY="263.0" prefHeight="18.0" prefWidth="311.0" textFill="RED" />
+            <Label fx:id="invalidField" alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="263.0" prefHeight="18.0" prefWidth="311.0" textFill="RED" />
          </children>
       </AnchorPane>
    </center>
