@@ -6,13 +6,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Feedback;
-import model.Log;
-import model.User;
 import service.FeedbackService;
 
 import java.io.IOException;
 
-public class showFeedbacksController {
+public class ShowFeedbacksController {
     private FeedbackService feedbackService = new FeedbackService();
 
     @FXML private TableView<Feedback> feedbacksTable;
