@@ -36,15 +36,6 @@ public class Employee {
         this.lastName = lastName;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Employee{" +
-//                "id=" + id +
-//                ", name='" + firstName +
-//                ", surname='" + lastName + '}';
-//    }
-
-    //TODO Temp solution, same as with user model
     @Override
     public String toString(){
         return getFirstName();

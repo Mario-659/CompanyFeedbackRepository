@@ -6,12 +6,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import service.LogsService;
-import service.UserService;
 import view.LoginController;
 import view.Main;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 public class AddLogController {
     Main main = new Main();
