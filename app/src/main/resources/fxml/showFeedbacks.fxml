@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="CompanyManagementRepository.view.TableViewControllers.ShowFeedbacksController">
+    <top>
+        <AnchorPane prefHeight="33.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button layoutX="43.0" layoutY="4.0" mnemonicParsing="false" onAction="#goBack" text="Go back" />
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <TableView fx:id="feedbacksTable" layoutX="32.0" layoutY="69.0" prefHeight="214.0" prefWidth="536.0">
+                    <columns>
+                        <TableColumn fx:id="idCol" prefWidth="30.4000244140625" text="id" />
+                        <TableColumn fx:id="dateCol" prefWidth="92.0" text="date" />
+                        <TableColumn fx:id="submitterCol" prefWidth="80.79998779296875" text="submitter" />
+                        <TableColumn fx:id="employeeCol" prefWidth="91.2000732421875" text="employee" />
+                        <TableColumn fx:id="isPositiveCol" prefWidth="67.199951171875" text="is positive" />
+                        <TableColumn fx:id="significanceCol" prefWidth="75.2000732421875" text="sagnificance" />
+                  <TableColumn fx:id="descriptionCol" prefWidth="97.5999755859375" text="description" />
+                    </columns>
+                </TableView>
+                <Label layoutX="180.0" layoutY="14.0" text="Company Feedbacks">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Label layoutX="60.0" layoutY="301.0" text="Select row and click on Delete to delete feedback" />
+            <Button layoutX="429.0" layoutY="306.0" mnemonicParsing="false" onAction="#deleteFeedbacks" text="Delete" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
