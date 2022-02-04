@@ -13,7 +13,7 @@ public class HomeController {
     }
 
     @FXML void addEmployee(ActionEvent event) throws IOException {
-        main.changeScene("/resources/fxml/addEmployee.fxml");
+        main.changeScene("/fxml/addEmployee.fxml");
     }
 
     @FXML void addFeedback(ActionEvent event) throws IOException {
